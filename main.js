@@ -18,11 +18,7 @@ let caluculator = document.querySelector('#calculator');
 
 //Screens
 let screenview = document.querySelector('#screenview');
-let nScreen = document.querySelector('#n-screen');
-let iyScreen = document.querySelector('#iy-screen');
-let pvScreen = document.querySelector('#pv-screen');
-let pmtScreen = document.querySelector('#pmt-screen');
-let fvScreen = document.querySelector('#fv-screen');
+
 
 //Financial Buttons
 let nButton = document.querySelector('#button-n');

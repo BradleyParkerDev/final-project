@@ -7,25 +7,6 @@ div{
     grid-area: screenview;
 }
 
-#n-screen{
-    grid-area: n-screen;
-
-}
-#iy-screen{
-    grid-area: iy-screen;
-
-}
-#pv-screen{
-    grid-area: pv-screen;
-
-}
-#pmt-screen{
-    grid-area: pmt-screen;
-
-}
-#fv-screen{
-    grid-area: pmt-screen;
-}
 
 #button-n{
     grid-area: button-n;
@@ -145,11 +126,10 @@ div{
 #calculator{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:"screenview screenview screenview screenview screenview screenview" 
     "screenview screenview screenview screenview screenview screenview"
     "screenview screenview screenview screenview screenview screenview"
-    "n-screen iy-screen pv-screen pmt-screen fv-screen"
     "button-n button-iy button-pv button-pmt button-fv button-cpt"
     "button-7 button-8 button-9 button-div button-left-p button-right-p"
     "button-4 button-5 button-6 button-mul button-delete"
