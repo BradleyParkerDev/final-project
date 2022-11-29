@@ -1,0 +1,160 @@
+div{
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+#screenview {
+    grid-area: screenview;
+}
+
+#n-screen{
+    grid-area: n-screen;
+
+}
+#iy-screen{
+    grid-area: iy-screen;
+
+}
+#pv-screen{
+    grid-area: pv-screen;
+
+}
+#pmt-screen{
+    grid-area: pmt-screen;
+
+}
+#fv-screen{
+    grid-area: pmt-screen;
+}
+
+#button-n{
+    grid-area: button-n;
+}
+#button-iy{
+    grid-area: button-iy;
+
+}
+#button-pv{
+    grid-area: button-pv;
+
+}
+#button-pmt{
+    grid-area: button-pmt;
+
+}
+#button-fv{
+    grid-area: button-fv;
+
+}
+#button-cpt{
+    grid-area: button-cpt;
+
+}
+#button-left-p{
+    grid-area: button-left-p;
+
+}
+#button-right-p{
+    grid-area: button-right-p;
+
+}
+#button-delete{
+    grid-area: button-delete;
+
+}
+#button-clear{
+    grid-area: button-clear;
+
+}
+
+
+
+
+#button-1 {
+    grid-area: button-1;
+}
+
+#button-2 {
+    grid-area: button-2;
+}
+
+#button-3 {
+    grid-area: button-3;
+}
+
+#button-4 {
+    grid-area: button-4;
+}
+
+#button-5 {
+    grid-area: button-5;
+}
+
+#button-6 {
+    grid-area: button-6;
+}
+
+#button-7 {
+    grid-area: button-7;
+}
+
+#button-8 {
+    grid-area: button-8;
+}
+
+#button-9 {
+    grid-area: button-9;
+}
+
+#button-0 {
+    grid-area: button-0;
+}
+
+
+
+#button-neg{
+    grid-area: button-neg;
+}
+
+#button-dec {
+    grid-area: button-dec;
+}
+
+#button-div {
+    grid-area: button-div;
+}
+
+#button-mul {
+    grid-area: button-mul;
+}
+
+#button-min {
+    grid-area: button-min;
+}
+
+#button-pls {
+    grid-area: button-pls;
+}
+
+#button-eql {
+    grid-area: button-eql;
+}
+
+
+
+#calculator{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:"screenview screenview screenview screenview screenview screenview" 
+    "screenview screenview screenview screenview screenview screenview"
+    "screenview screenview screenview screenview screenview screenview"
+    "n-screen iy-screen pv-screen pmt-screen fv-screen"
+    "button-n button-iy button-pv button-pmt button-fv button-cpt"
+    "button-7 button-8 button-9 button-div button-left-p button-right-p"
+    "button-4 button-5 button-6 button-mul button-delete"
+    "button-1 button-2 button-3 button-min button-clear"
+    "button-neg button-0 button-dec button-pls button-eql";
+
+
+}

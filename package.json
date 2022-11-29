@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@travishorn/finance": "^1.0.2",
+    "financejs": "^4.1.0"
+  }
+}
