@@ -18,7 +18,7 @@ let caluculator = document.querySelector('#calculator');
 
 //Screens
 let screenview = document.querySelector('#screenview');
-
+//I removed the smaller screens, there is only one screen now. 
 
 //Financial Buttons
 let nButton = document.querySelector('#button-n');
