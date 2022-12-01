@@ -135,3 +135,11 @@ fvButton.addEventListener('click',function(){
 
 });
 
+cptButton.addEventListener('click', function(){
+    finance.nper()
+    finance.rate()
+    finance.pv(r,nper)
+    finance.pmt()
+    finance.fv()
+});
+
