@@ -1,10 +1,16 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+/*
+
+Run this command:
+browserify main.js -p esmify > bundle.js
+
+*/
+
+
 //////////////////////////////////////////////////////////////
 //Libraries
 //////////////////////////////////////////////////////////////
 //financejs library 
-// const Finance = require('financejs');
-// const finance = new Finance();
 
 const finance = require('@travishorn/finance')
 
@@ -12,9 +18,7 @@ console.log(Math.round(finance.pmt(0.0525, 5, -10000) * 100) / 100);
 const values = [-1500, 500, 500, 500, 500];
   
 console.log((Math.round(finance.irr(values) * 100) / 100) * 100);
-//travis horn librabrary - How do I include this?
-// const  = require('@travishorn/finance');
-// const  = new ();
+
 
 //////////////////////////////////////////////////////////////
 // Variables
@@ -25,6 +29,8 @@ let i = 0;
 let pv = 0;
 let pmt = 0;
 let fv = 0;
+let result = 0;
+
 
 //////////////////////////////////////////////////////////////
 //Buttons and Screens
@@ -34,7 +40,14 @@ let caluculator = document.querySelector('#calculator');
 
 //Screens
 let screenview = document.querySelector('#screenview');
-//I removed the smaller screens, there is only one screen now. 
+let inputText = document.querySelector('#inputText');
+let calcualtion = document.querySelector('#calculation');
+//calc-buttons
+let calcButton = document.querySelectorAll("#calculator .calc-button")
+
+
+
+
 
 //Financial Buttons
 let nButton = document.querySelector('#button-n');
@@ -73,6 +86,34 @@ let button9 = document.querySelector('#button-9');
 //////////////////////////////////////////////////////////////
 //Event Handlers
 //////////////////////////////////////////////////////////////
+for(let i = 0; i < calcButton.length; i++){
+    calcButton[i].addEventListener('click', function(){
+        console.log(calcButton[i].innerText);
+        inputText.value = inputText.value += calcButton[i].innerText;
+        result = eval(inputText.value)
+        
+    });
+
+}
+eqlButton.addEventListener('click',function(){
+    inputText.value = result;
+});
+
+// deleteButton.addEventListener('click',function(){
+//     inputText.value = inputText.value -= ;
+// });
+
+clearButton.addEventListener('click',function(){
+    n = 0;
+    i = 0;
+    pv = 0;
+    pmt = 0;
+    fv = 0;
+    result = 0;
+    inputText.value = "";
+});
+
+
 },{"@travishorn/finance":5}],2:[function(require,module,exports){
 "use strict";
 

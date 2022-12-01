@@ -1,9 +1,22 @@
+input{
+    height: auto;
+    width: auto;
+}
 div{
     border: 1px solid black;
     margin: 10px;
     padding: 10px;
 }
 .calc-button{
+    text-align: center;
+}
+.fin-button{
+    text-align: center;
+}
+.neg-button{
+    text-align: center;
+}
+.screen-button{
     text-align: center;
 }
 #calculator{
@@ -16,6 +29,7 @@ div{
 #screenview{
     grid-column: 1 / 7; 
     grid-row: 1 / span 2; 
+
 }
 #button-delete{
     grid-column: 5/ 7; 
