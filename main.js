@@ -1,10 +1,24 @@
+/*
+
+Run this command:
+browserify main.js -p esmify > bundle.js
+
+*/
+
+
 //////////////////////////////////////////////////////////////
 //Libraries
 //////////////////////////////////////////////////////////////
 //financejs library 
-const Finance = require('financejs');
-const finance = new Finance();
+// const Finance = require('financejs');
+// const finance = new Finance();
 
+const finance = require('@travishorn/finance')
+
+console.log(Math.round(finance.pmt(0.0525, 5, -10000) * 100) / 100);
+const values = [-1500, 500, 500, 500, 500];
+  
+console.log((Math.round(finance.irr(values) * 100) / 100) * 100);
 //travis horn librabrary - How do I include this?
 // const  = require('@travishorn/finance');
 // const  = new ();

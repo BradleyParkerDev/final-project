@@ -1,6 +1,11 @@
 {
   "dependencies": {
     "@travishorn/finance": "^1.0.2",
+    "browser-sync": "^2.27.10",
+    "browserify": "^17.0.0",
     "financejs": "^4.1.0"
+  },
+  "devDependencies": {
+    "esmify": "^2.1.1"
   }
 }
