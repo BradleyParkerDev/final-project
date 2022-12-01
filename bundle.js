@@ -25,7 +25,7 @@ console.log((Math.round(finance.irr(values) * 100) / 100) * 100);
 //////////////////////////////////////////////////////////////
 
 let n = 0;
-let i = 0;
+let r = 0;
 let pv = 0;
 let pmt = 0;
 let fv = 0;
@@ -88,7 +88,6 @@ let button9 = document.querySelector('#button-9');
 //////////////////////////////////////////////////////////////
 for(let i = 0; i < calcButton.length; i++){
     calcButton[i].addEventListener('click', function(){
-        console.log(calcButton[i].innerText);
         inputText.value = inputText.value += calcButton[i].innerText;
         result = eval(inputText.value)
         
@@ -105,12 +104,36 @@ eqlButton.addEventListener('click',function(){
 
 clearButton.addEventListener('click',function(){
     n = 0;
-    i = 0;
+    r = 0;
     pv = 0;
     pmt = 0;
     fv = 0;
     result = 0;
     inputText.value = "";
+});
+
+nButton.addEventListener('click',function(){
+    n = eval(inputText.value);
+    console.log(`N: ${n}`);
+});
+iyButton.addEventListener('click',function(){
+    r = eval(inputText.value);
+    console.log(`I/Y: ${r}`);
+});
+pvButton.addEventListener('click',function(){
+    pv = eval(inputText.value);
+    console.log(`PV: ${pv}`);
+
+});
+pmtButton.addEventListener('click',function(){
+    pmt = eval(inputText.value);
+    console.log(`PMT: ${pmt}`);
+
+});
+fvButton.addEventListener('click',function(){
+    fv = eval(inputText.value);
+    console.log(`FV: ${fv}`);
+
 });
 
 
