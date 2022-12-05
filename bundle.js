@@ -114,26 +114,68 @@ clearButton.addEventListener('click',function(){
 
 nButton.addEventListener('click',function(){
     n = eval(inputText.value);
+    if(n !== undefined){
+        nButton.style.background = "#98fb98";
+    }
+    else{
+        nButton.style.background = "";
+
+    }
     console.log(`N: ${n}`);
 });
 iyButton.addEventListener('click',function(){
     r = eval(inputText.value);
+    if(r !== undefined){
+        iyButton.style.background = "#98fb98";
+    }
+    else{
+        iyButton.style.background = "";
+
+    }
     console.log(`I/Y: ${r}`);
 });
 pvButton.addEventListener('click',function(){
     pv = eval(inputText.value);
+    if(pv !== undefined){
+        pvButton.style.background = "#98fb98";
+    }
+    else{
+        pvButton.style.background = "";
+
+    }
     console.log(`PV: ${pv}`);
 
 });
 pmtButton.addEventListener('click',function(){
     pmt = eval(inputText.value);
+    if(pmt !== undefined){
+        pmtButton.style.background = "#98fb98";
+    }
+    else{
+        pmtButton.style.background = "";
+
+    }
     console.log(`PMT: ${pmt}`);
 
 });
 fvButton.addEventListener('click',function(){
     fv = eval(inputText.value);
+    if(fv !== undefined){
+        fvButton.style.background = "#98fb98";
+    }
+    else{
+        fvButton.style.background = "";
+    }
     console.log(`FV: ${fv}`);
 
+});
+
+cptButton.addEventListener('click', function(){
+    finance.nper()
+    finance.rate()
+    finance.pv(r,nper)
+    finance.pmt()
+    finance.fv()
 });
 
 
