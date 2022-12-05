@@ -24,11 +24,11 @@ console.log((Math.round(finance.irr(values) * 100) / 100) * 100);
 // Variables
 //////////////////////////////////////////////////////////////
 
-let n = 0;
-let r = 0;
-let pv = 0;
-let pmt = 0;
-let fv = 0;
+let n = undefined;
+let r = undefined;
+let pv = undefined;
+let pmt = undefined;
+let fv = undefined;
 let result = 0;
 
 
@@ -45,7 +45,8 @@ let calcualtion = document.querySelector('#calculation');
 //calc-buttons
 let calcButton = document.querySelectorAll("#calculator .calc-button")
 
-
+//fin-buttons
+let finButton = document.querySelectorAll("#calculator .fin-button")
 
 
 
@@ -109,11 +110,16 @@ deleteButton.addEventListener('click',function(){
 });
 
 clearButton.addEventListener('click',function(){
-    n = 0;
-    r = 0;
-    pv = 0;
-    pmt = 0;
-    fv = 0;
+
+    for(let i = 0; i < finButton.length; i ++){
+        finButton[i] = undefined;
+        finButton[i].style.background = "";
+    }
+    // n = undefined;
+    // r = undefined;
+    // pv = undefined;
+    // pmt = undefined;
+    // fv = undefined;
     result = 0;
     inputText.value = "";
 });
@@ -177,12 +183,38 @@ fvButton.addEventListener('click',function(){
 });
 
 cptButton.addEventListener('click', function(){
-    finance.nper()
-    finance.rate()
-    finance.pv(r,nper)
-    finance.pmt()
-    finance.fv()
+    console.log("CPT Button Clicked!")
+    if(n === undefined){
+        n = finance.nper(r,pmt,pv,fv,false);
+
+    }
+    else if(r === undefined){
+        r = finance.rate(n,pmt,pv,fv,false)
+        inputText.value = r;
+
+    }
+    else if(pv === undefined){
+        pv = finance.pv(r,n,pmt,fv,false)
+        inputText.value = pv;
+
+    }
+    else if(pmt === undefined){
+        pmt = finance.pmt(r,n,pv,fv,false);
+        inputText.value = pmt;
+
+    }
+    else if(fv === undefined){
+        fv = finance.fv(r,n,pmt, pv,false);
+        console.log(finance.fv(.1,1,0,-100,false));
+
+        console.log(fv)
+        inputText.value = fv;
+
+    }
 });
+
+console.log(finance.fv(.1,1,0,-100,false));
+console.log(finance.nper(.1,0,-100,110,false));
 /*
 pv(rate, nper, pmt, [fv], [type]);
 fv(rate, nper, pmt, pv, [type]);
