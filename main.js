@@ -100,9 +100,12 @@ eqlButton.addEventListener('click',function(){
     inputText.value = result;
 });
 
-// deleteButton.addEventListener('click',function(){
-//     inputText.value = inputText.value -= ;
-// });
+deleteButton.addEventListener('click',function(){
+    let cursorPosition = inputText.selectionStart;
+    inputText.value = inputText.value.substring(0,cursorPosition-1) + inputText.value.substring(cursorPosition);
+    inputText.focus()
+    inputText.setSelectionRange(cursorPosition-1, cursorPosition-1)
+});
 
 clearButton.addEventListener('click',function(){
     n = 0;

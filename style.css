@@ -21,6 +21,7 @@ div{
 #calculator{
     display: grid;
     width: 700px;
+    justify-content: center;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(7, 1fr);
 
