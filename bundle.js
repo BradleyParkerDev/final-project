@@ -12,7 +12,7 @@ browserify main.js -p esmify > bundle.js
 //////////////////////////////////////////////////////////////
 //financejs library 
 
-const finance = require('@travishorn/finance')
+const finance = require('@travishorn/finance');
 
 console.log(Math.round(finance.pmt(0.0525, 5, -10000) * 100) / 100);
 const values = [-1500, 500, 500, 500, 500];
@@ -88,8 +88,11 @@ let button9 = document.querySelector('#button-9');
 //////////////////////////////////////////////////////////////
 for(let i = 0; i < calcButton.length; i++){
     calcButton[i].addEventListener('click', function(){
-        inputText.value = inputText.value += calcButton[i].innerText;
-        result = eval(inputText.value)
+        let cursorPosition = inputText.selectionStart;
+        console.log(cursorPosition);
+        inputText.value = inputText.value.substring(0,cursorPosition) + calcButton[i].innerText + inputText.value.substring(cursorPosition);
+        //inputText.value = inputText.value += calcButton[i].innerText;
+        result = eval(inputText.value);
         
     });
 
@@ -177,8 +180,12 @@ cptButton.addEventListener('click', function(){
     finance.pmt()
     finance.fv()
 });
-
-
+/*
+pv(rate, nper, pmt, [fv], [type]);
+fv(rate, nper, pmt, pv, [type]);
+pmt(rate, nper, pv, [fv], [type]);
+rate(nper, pmt, pv, [fv], [type], [guess]);
+*/
 },{"@travishorn/finance":5}],2:[function(require,module,exports){
 "use strict";
 
