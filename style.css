@@ -20,7 +20,9 @@
 #inputText{
     /*border: none;*/
     position:relative;
-    left: 0px;
+    font-size:xx-large;
+    right: 0px;
+    text-align: right;
 
 }
 #calculator{
@@ -35,6 +37,21 @@
     grid-template-rows: repeat(7, 1fr);
 
 }
+#financialFact{
+    width: 450px;
+    height: 100px;
+    background-color: whitesmoke;
+    margin: auto;
+
+
+
+
+}
+#fin-fact{
+    color: tomato;
+    text-decoration: underline;
+    text-align: center;
+}
 
 body{
     justify-content: center;
@@ -43,9 +60,7 @@ body{
     background-repeat: repeat-x;
     
 }
-input{
-    font-size: xx-large;
-}
+
 div{
     border: 3px solid black;
     border-radius: 5px;

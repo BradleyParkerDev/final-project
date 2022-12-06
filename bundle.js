@@ -98,9 +98,7 @@ for(let i = 0; i < calcButton.length; i++){
     });
 
 }
-eqlButton.addEventListener('click',function(){
-    inputText.value = result;
-});
+
 
 deleteButton.addEventListener('click',function(){
     let cursorPosition = inputText.selectionStart;
@@ -108,6 +106,7 @@ deleteButton.addEventListener('click',function(){
     inputText.focus()
     inputText.setSelectionRange(cursorPosition-1, cursorPosition-1)
 });
+
 
 clearButton.addEventListener('click',function(){
 
@@ -120,6 +119,21 @@ clearButton.addEventListener('click',function(){
     inputText.value = "";
 });
 
+eqlButton.addEventListener('click',function(){
+    inputText.value = result;
+});
+
+negButton.addEventListener('click',function(){
+    
+    if(inputText.value.includes('-')){
+        inputText.value = inputText.value.replace("-","");
+    }
+    else{
+        inputText.value = `-${inputText.value}`;
+
+    }
+    
+})
 nButton.addEventListener('click',function(){
     n = eval(inputText.value);
     if(n !== undefined){
@@ -182,21 +196,30 @@ cptButton.addEventListener('click', function(){
     console.log("CPT Button Clicked!")
     if(n === undefined){
         n = finance.nper(r,pmt,pv,fv,false);
+        inputText.value = n;
+        nButton.style.background = "#98fb98";
+
 
     }
     else if(r === undefined){
         r = finance.rate(n,pmt,pv,fv,false)
         inputText.value = r;
+        rButton.style.background = "#98fb98";
+
 
     }
     else if(pv === undefined){
         pv = finance.pv(r,n,pmt,fv,false)
         inputText.value = pv;
+        pvButton.style.background = "#98fb98";
+
 
     }
     else if(pmt === undefined){
         pmt = finance.pmt(r,n,pv,fv,false);
         inputText.value = pmt;
+        pmtButton.style.background = "#98fb98";
+
 
     }
     else if(fv === undefined){
@@ -205,18 +228,15 @@ cptButton.addEventListener('click', function(){
 
         console.log(fv)
         inputText.value = fv;
+        fvButton.style.background = "#98fb98";
+
 
     }
 });
 
 console.log(finance.fv(.1,1,0,-100,false));
 console.log(finance.nper(.1,0,-100,110,false));
-/*
-pv(rate, nper, pmt, [fv], [type]);
-fv(rate, nper, pmt, pv, [type]);
-pmt(rate, nper, pv, [fv], [type]);
-rate(nper, pmt, pv, [fv], [type], [guess]);
-*/
+
 },{"@travishorn/finance":5}],2:[function(require,module,exports){
 "use strict";
 
