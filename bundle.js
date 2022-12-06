@@ -111,15 +111,11 @@ deleteButton.addEventListener('click',function(){
 
 clearButton.addEventListener('click',function(){
 
-    for(let i = 0; i < finButton.length; i ++){
-        finButton[i] = undefined;
-        finButton[i].style.background = "";
-    }
-    // n = undefined;
-    // r = undefined;
-    // pv = undefined;
-    // pmt = undefined;
-    // fv = undefined;
+    // for(let i = 0; i < finButton.length; i ++){
+    //     finButton[i] = undefined;
+    //     finButton[i].style.background = "";
+    // }
+
     result = 0;
     inputText.value = "";
 });
