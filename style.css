@@ -39,18 +39,25 @@
 }
 #financialFact{
     width: 450px;
-    height: 100px;
+    height: auto;
     background-color: whitesmoke;
     margin: auto;
-
-
-
-
 }
-#fin-fact{
+#closeButton{
+    width: 16px;
+    height: 16px;
+}
+
+
+#finTitle{
     color: tomato;
     text-decoration: underline;
+    margin: 150px;
     text-align: center;
+}
+
+#fact{
+    color: black;
 }
 
 body{
