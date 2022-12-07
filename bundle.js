@@ -1,9 +1,7 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 /*
-
 Run this command:
 browserify main.js -p esmify > bundle.js
-
 */
 
 
@@ -11,12 +9,11 @@ browserify main.js -p esmify > bundle.js
 //Libraries
 //////////////////////////////////////////////////////////////
 //financejs library 
-
 const finance = require('@travishorn/finance');
 
+// Console Test Examples
 console.log(Math.round(finance.pmt(0.0525, 5, -10000) * 100) / 100);
 const values = [-1500, 500, 500, 500, 500];
-  
 console.log((Math.round(finance.irr(values) * 100) / 100) * 100);
 
 
@@ -35,20 +32,18 @@ let result = 0;
 //////////////////////////////////////////////////////////////
 //Buttons and Screens
 //////////////////////////////////////////////////////////////
-
 let caluculator = document.querySelector('#calculator');
 
 //Screens
 let screenview = document.querySelector('#screenview');
 let inputText = document.querySelector('#inputText');
-let calcualtion = document.querySelector('#calculation');
+let totalOutput = document.querySelector('#totalOutput');
+
 //calc-buttons
 let calcButton = document.querySelectorAll("#calculator .calc-button")
 
 //fin-buttons
 let finButton = document.querySelectorAll("#calculator .fin-button")
-
-
 
 //Financial Buttons
 let nButton = document.querySelector('#button-n');
@@ -94,12 +89,15 @@ for(let i = 0; i < calcButton.length; i++){
         inputText.value = inputText.value.substring(0,cursorPosition) + calcButton[i].innerText + inputText.value.substring(cursorPosition);
         //inputText.value = inputText.value += calcButton[i].innerText;
         result = eval(inputText.value);
+
+        totalOutput.innerText = eval(inputText.value);
+
         
     });
 
 }
 
-
+// Delete Button
 deleteButton.addEventListener('click',function(){
     let cursorPosition = inputText.selectionStart;
     inputText.value = inputText.value.substring(0,cursorPosition-1) + inputText.value.substring(cursorPosition);
@@ -107,22 +105,19 @@ deleteButton.addEventListener('click',function(){
     inputText.setSelectionRange(cursorPosition-1, cursorPosition-1)
 });
 
-
+// Clear Button
 clearButton.addEventListener('click',function(){
-
-    // for(let i = 0; i < finButton.length; i ++){
-    //     finButton[i] = undefined;
-    //     finButton[i].style.background = "";
-    // }
-
     result = 0;
     inputText.value = "";
+    totalOutput.innerText = "";
 });
 
+// = Button
 eqlButton.addEventListener('click',function(){
     inputText.value = result;
 });
 
+// +/- Button
 negButton.addEventListener('click',function(){
     
     if(inputText.value.includes('-')){
@@ -134,6 +129,8 @@ negButton.addEventListener('click',function(){
     }
     
 })
+
+// N Button
 nButton.addEventListener('click',function(){
     n = eval(inputText.value);
     if(n !== undefined){
@@ -145,6 +142,8 @@ nButton.addEventListener('click',function(){
     }
     console.log(`N: ${n}`);
 });
+
+// I/Y Button
 iyButton.addEventListener('click',function(){
     r = eval(inputText.value);
     if(r !== undefined){
@@ -156,6 +155,8 @@ iyButton.addEventListener('click',function(){
     }
     console.log(`I/Y: ${r}`);
 });
+
+// PV Button
 pvButton.addEventListener('click',function(){
     pv = eval(inputText.value);
     if(pv !== undefined){
@@ -166,8 +167,9 @@ pvButton.addEventListener('click',function(){
 
     }
     console.log(`PV: ${pv}`);
-
 });
+
+// PMT Button
 pmtButton.addEventListener('click',function(){
     pmt = eval(inputText.value);
     if(pmt !== undefined){
@@ -178,8 +180,9 @@ pmtButton.addEventListener('click',function(){
 
     }
     console.log(`PMT: ${pmt}`);
-
 });
+
+// FV Button
 fvButton.addEventListener('click',function(){
     fv = eval(inputText.value);
     if(fv !== undefined){
@@ -192,35 +195,28 @@ fvButton.addEventListener('click',function(){
 
 });
 
+// CPT Button
 cptButton.addEventListener('click', function(){
     console.log("CPT Button Clicked!")
     if(n === undefined){
         n = finance.nper(r,pmt,pv,fv,false);
         inputText.value = n;
         nButton.style.background = "#98fb98";
-
-
     }
     else if(r === undefined){
         r = finance.rate(n,pmt,pv,fv,false)
         inputText.value = r;
-        rButton.style.background = "#98fb98";
-
-
+        iyButton.style.background = "#98fb98";
     }
     else if(pv === undefined){
         pv = finance.pv(r,n,pmt,fv,false)
         inputText.value = pv;
         pvButton.style.background = "#98fb98";
-
-
     }
     else if(pmt === undefined){
         pmt = finance.pmt(r,n,pv,fv,false);
         inputText.value = pmt;
         pmtButton.style.background = "#98fb98";
-
-
     }
     else if(fv === undefined){
         fv = finance.fv(r,n,pmt, pv,false);
@@ -229,18 +225,13 @@ cptButton.addEventListener('click', function(){
         console.log(fv)
         inputText.value = fv;
         fvButton.style.background = "#98fb98";
-
-
     }
 });
-
-console.log(finance.fv(.1,1,0,-100,false));
-console.log(finance.nper(.1,0,-100,110,false));
-
 
 //////////////////////////////////////////////////////////////
 //Financial Facts
 //////////////////////////////////////////////////////////////
+//Facts Source - https://investinganswers.com/articles/99-surprising-financial-facts-most-investors-dont-know
 let financialFact = [];
 financialFact[0] = "The United States generates more than 20% of the world's GDP with about 4% of the world's population.";
 financialFact[1] = "In 2004, Alan Greenspan said, 'American consumers might benefit if lenders provided greater mortgage product alternatives to the traditional fixed-rate mortgage.' Since 2007, total losses attributable to subprime, Alt-A and other alternative mortgage products have been in the trillions.";
@@ -264,15 +255,6 @@ closeButton.addEventListener('click',function(){
 
     finFact.remove();
 })
-
-
-//Random number generator function
-const getRandomNumber = function(max) {
-    const rand = Math.random();
-    const range = rand * max;
-    const result = Math.ceil(range);
-    return result;
-}
 },{"@travishorn/finance":5}],2:[function(require,module,exports){
 "use strict";
 
