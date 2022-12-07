@@ -11,6 +11,7 @@ body{
     
 }
 
+
 div{
     border: 3px solid black;
     border-radius: 5px;
@@ -30,7 +31,11 @@ div{
     font-family: myFirstFont;
     src: url(Backbones-YzAoL.ttf);
   }
-
+@-moz-document url-prefix() {
+    #fcDiv{
+       padding:20px;
+    }
+}
 #fcDiv{
     justify-content: start;
     width: 450px;
@@ -84,11 +89,14 @@ div{
 
 }
 #inputText{
-    /*border: none;*/
+    border: hidden;
+    outline: none;
     font-size:xx-large;
     /*margin-left: 90px;*/
+    padding-left: 1px;
+    padding-right: 1px;
     text-align: right;
-
+    width: 100%;
 }
 #totalOutput{
     text-align: right;
