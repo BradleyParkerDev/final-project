@@ -11,9 +11,9 @@ browserify main.js -p esmify > bundle.js
 const finance = require('@travishorn/finance');
 
 // Console Test Examples
-console.log(Math.round(finance.pmt(0.0525, 5, -10000) * 100) / 100);
-const values = [-1500, 500, 500, 500, 500];
-console.log((Math.round(finance.irr(values) * 100) / 100) * 100);
+// console.log(Math.round(finance.pmt(0.0525, 5, -10000) * 100) / 100);
+// const values = [-1500, 500, 500, 500, 500];
+// console.log((Math.round(finance.irr(values) * 100) / 100) * 100);
 
 
 //////////////////////////////////////////////////////////////
@@ -84,7 +84,7 @@ let button9 = document.querySelector('#button-9');
 for(let i = 0; i < calcButton.length; i++){
     calcButton[i].addEventListener('click', function(){
         let cursorPosition = inputText.selectionStart;
-        console.log(cursorPosition);
+        //console.log(cursorPosition);
         inputText.value = inputText.value.substring(0,cursorPosition) + calcButton[i].innerText + inputText.value.substring(cursorPosition);
         //inputText.value = inputText.value += calcButton[i].innerText;
         result = eval(inputText.value);
@@ -102,6 +102,12 @@ deleteButton.addEventListener('click',function(){
     inputText.value = inputText.value.substring(0,cursorPosition-1) + inputText.value.substring(cursorPosition);
     inputText.focus()
     inputText.setSelectionRange(cursorPosition-1, cursorPosition-1)
+    totalOutput.innerText = eval(inputText.value);
+    
+    if(inputText.value === undefined){
+        totalOutput.innerText = "";
+    }
+
 });
 
 // Clear Button
@@ -114,6 +120,8 @@ clearButton.addEventListener('click',function(){
 // = Button
 eqlButton.addEventListener('click',function(){
     inputText.value = result;
+    //totalOutput.innerText = "";
+
 });
 
 // +/- Button
@@ -121,10 +129,11 @@ negButton.addEventListener('click',function(){
     
     if(inputText.value.includes('-')){
         inputText.value = inputText.value.replace("-","");
+        totalOutput.innerText = eval(inputText.value);
     }
     else{
         inputText.value = `-${inputText.value}`;
-
+        totalOutput.innerText = eval(inputText.value);
     }
     
 })
@@ -201,29 +210,53 @@ cptButton.addEventListener('click', function(){
         n = finance.nper(r,pmt,pv,fv,false);
         inputText.value = n;
         nButton.style.background = "#98fb98";
+        console.log(`N: ${n}`);
+        console.log(`I/Y: ${r}`);
+        console.log(`PV: ${pv}`);
+        console.log(`PMT: ${pmt}`);
+        console.log(`FV: ${fv}`);
+
     }
     else if(r === undefined){
         r = finance.rate(n,pmt,pv,fv,false)
         inputText.value = r;
         iyButton.style.background = "#98fb98";
+        console.log(`N: ${n}`);
+        console.log(`I/Y: ${r}`);
+        console.log(`PV: ${pv}`);
+        console.log(`PMT: ${pmt}`);
+        console.log(`FV: ${fv}`);
     }
     else if(pv === undefined){
         pv = finance.pv(r,n,pmt,fv,false)
         inputText.value = pv;
         pvButton.style.background = "#98fb98";
+        console.log(`N: ${n}`);
+        console.log(`I/Y: ${r}`);
+        console.log(`PV: ${pv}`);
+        console.log(`PMT: ${pmt}`);
+        console.log(`FV: ${fv}`);
     }
     else if(pmt === undefined){
         pmt = finance.pmt(r,n,pv,fv,false);
         inputText.value = pmt;
         pmtButton.style.background = "#98fb98";
+        console.log(`N: ${n}`);
+        console.log(`I/Y: ${r}`);
+        console.log(`PV: ${pv}`);
+        console.log(`PMT: ${pmt}`);
+        console.log(`FV: ${fv}`);
     }
     else if(fv === undefined){
         fv = finance.fv(r,n,pmt, pv,false);
         console.log(finance.fv(.1,1,0,-100,false));
-
-        console.log(fv)
         inputText.value = fv;
         fvButton.style.background = "#98fb98";
+        console.log(`N: ${n}`);
+        console.log(`I/Y: ${r}`);
+        console.log(`PV: ${pv}`);
+        console.log(`PMT: ${pmt}`);
+        console.log(`FV: ${fv}`);
     }
 });
 
