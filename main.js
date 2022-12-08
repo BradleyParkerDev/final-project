@@ -9,6 +9,13 @@ browserify main.js -p esmify > bundle.js
 //////////////////////////////////////////////////////////////
 //financejs library 
 const finance = require('@travishorn/finance');
+const csv = require('csvtojson');
+const { Parser } = require('jsontocsv');
+(async () => {
+    const data = await csv().fromFile("finance-facts.csv");
+    console.log(data);
+})();
+
 
 // Console Test Examples
 // console.log(Math.round(finance.pmt(0.0525, 5, -10000) * 100) / 100);
@@ -291,3 +298,5 @@ closeButton.addEventListener('click',function(){
 
     finFact.remove();
 })
+
+
