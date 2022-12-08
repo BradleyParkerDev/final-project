@@ -25,6 +25,7 @@ div{
     margin: auto;
     width: 500px;
     height: auto;
+    border: none;
 }
 
 /*
@@ -181,3 +182,36 @@ div{
 //Responsiveness
 //////////////////////////////////////////////////////////////
 */
+@media screen and (max-width: 500px) {
+    #calculator {
+        width: 400px;
+    }
+    #fcDiv{
+        width: 400px
+    }
+
+    #financialFact{
+        width: 400px;
+    }
+    #finTitle{
+
+        margin: 125px;
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    #calculator {
+        width: 350px;
+    }
+    #fcDiv{
+        width: 350px
+    }
+
+    #financialFact{
+        width: 350px;
+    }
+    #finTitle{
+
+        margin: 100px;
+    }
+  }
