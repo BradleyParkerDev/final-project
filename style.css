@@ -11,7 +11,6 @@ body{
     
 }
 
-
 div{
     border: 3px solid black;
     border-radius: 5px;
@@ -28,6 +27,7 @@ div{
     border: none;
 }
 
+
 /*
 //////////////////////////////////////////////////////////////
 //Financial Calculator Title
@@ -42,6 +42,7 @@ div{
        padding:20px;
     }
 }
+
 #fcDiv{
     justify-content: start;
     width: 450px;
@@ -91,9 +92,8 @@ div{
     grid-row: 1 / span 2; 
     background-color: white;
     justify-content: center;
-
-
 }
+
 #inputText{
     border: hidden;
     outline: none;
@@ -104,6 +104,7 @@ div{
     text-align: right;
     width: 100%;
 }
+
 #totalOutput{
     text-align: right;
     color:black;
@@ -113,36 +114,45 @@ div{
     border: none;
 
 }
+
 /*
 -----------------------------Buttons---------------------------
 */
+
 .calc-button{
     text-align: center;
     background-color: black;
 }
+
 .fin-button{
     text-align: center;
     color:black;
     background-color: white;
 }
+
 .neg-button{
     text-align: center;
     background-color: black;
 }
+
 .screen-button{
     text-align: center;    
 }
+
 #button-delete{
     grid-column: 5/ 7; 
     background-color: tomato;
 }
+
 #button-clear{
     grid-column: 5/ 7;
     background-color: tomato;
 }
+
 #button-eql {
     grid-column: 5/ 7; 
 }
+
 .teal-button{
     background-color: teal;
 }
@@ -159,10 +169,12 @@ div{
     background-color: whitesmoke;
     margin: auto;
 }
+
 #closeButton{
     width: 16px;
     height: 16px;
 }
+
 #finTitle{
     color: tomato;
     text-decoration: underline;
@@ -174,8 +186,8 @@ div{
     color: black;
     margin-left: 15px;
     margin-right: 15px;
-
 }
+
 
 /*
 //////////////////////////////////////////////////////////////
@@ -189,12 +201,10 @@ div{
     #fcDiv{
         width: 400px
     }
-
     #financialFact{
         width: 400px;
     }
     #finTitle{
-
         margin: 125px;
     }
   }
@@ -206,12 +216,10 @@ div{
     #fcDiv{
         width: 350px
     }
-
     #financialFact{
         width: 350px;
     }
     #finTitle{
-
         margin: 100px;
     }
   }
