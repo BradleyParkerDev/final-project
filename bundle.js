@@ -210,6 +210,7 @@ cptButton.addEventListener('click', function(){
     if(n === undefined){
         n = finance.nper(r,pmt,pv,fv,false);
         inputText.value = n;
+        totalOutput.innerText = "";
         nButton.style.background = "#98fb98";
         console.log(`N: ${n}`);
         console.log(`I/Y: ${r}`);
@@ -221,6 +222,7 @@ cptButton.addEventListener('click', function(){
     else if(r === undefined){
         r = finance.rate(n,pmt,pv,fv,false)
         inputText.value = r;
+        totalOutput.innerText = "";
         iyButton.style.background = "#98fb98";
         console.log(`N: ${n}`);
         console.log(`I/Y: ${r}`);
@@ -231,6 +233,7 @@ cptButton.addEventListener('click', function(){
     else if(pv === undefined){
         pv = finance.pv(r,n,pmt,fv,false)
         inputText.value = pv;
+        totalOutput.innerText = "";
         pvButton.style.background = "#98fb98";
         console.log(`N: ${n}`);
         console.log(`I/Y: ${r}`);
@@ -241,6 +244,7 @@ cptButton.addEventListener('click', function(){
     else if(pmt === undefined){
         pmt = finance.pmt(r,n,pv,fv,false);
         inputText.value = pmt;
+        totalOutput.innerText = "";
         pmtButton.style.background = "#98fb98";
         console.log(`N: ${n}`);
         console.log(`I/Y: ${r}`);
@@ -250,8 +254,8 @@ cptButton.addEventListener('click', function(){
     }
     else if(fv === undefined){
         fv = finance.fv(r,n,pmt, pv,false);
-        console.log(finance.fv(.1,1,0,-100,false));
         inputText.value = fv;
+        totalOutput.innerText = "";
         fvButton.style.background = "#98fb98";
         console.log(`N: ${n}`);
         console.log(`I/Y: ${r}`);
