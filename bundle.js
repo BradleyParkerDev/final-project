@@ -10,7 +10,9 @@ browserify main.js -p esmify > bundle.js
 //////////////////////////////////////////////////////////////
 //financejs library 
 const finance = require('@travishorn/finance');
-
+const formatter = new Intl.NumberFormat('en');
+const num = 120000000;
+console.log(formatter.format(num));
 // Console Test Examples
 // console.log(Math.round(finance.pmt(0.0525, 5, -10000) * 100) / 100);
 // const values = [-1500, 500, 500, 500, 500];
@@ -270,6 +272,8 @@ function readFinFacts(){
     });
 }
 readFinFacts();
+
+
 },{"@travishorn/finance":5}],2:[function(require,module,exports){
 "use strict";
 
