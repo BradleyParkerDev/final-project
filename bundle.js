@@ -88,7 +88,9 @@ for(let i = 0; i < calcButton.length; i++){
     calcButton[i].addEventListener('click', function(){
         let cursorPosition = inputText.selectionStart;
         inputText.value = inputText.value.substring(0,cursorPosition) + calcButton[i].innerText + inputText.value.substring(cursorPosition);
+        
         result = eval(inputText.value);
+        //console.log(result.replace(/\B(?=(\d{3})+(?!\d))/g, ','));
         totalOutput.innerText = eval(inputText.value);
     });
 }
